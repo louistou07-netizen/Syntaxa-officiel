@@ -1,0 +1,10 @@
+# Syntaxa - robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://syntaxa.com/sitemap.xml
+
+# Crawl delay (optionnel, en secondes)
+Crawl-delay: 1

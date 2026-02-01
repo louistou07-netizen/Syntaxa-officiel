@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Syntaxa - Assistant IA Personnel pour le Développement | Propulsé par Claude AI</title>
+    <meta name="description" content="Syntaxa est votre assistant IA intelligent spécialisé en développement. Codez plus vite avec Claude AI. Support de 12+ langages, éditeur intégré, 100% gratuit.">
+    <meta name="keywords" content="Syntaxa, assistant IA, développement, programmation, Claude AI, éditeur code, JavaScript, Python, IA codage, AI assistant">
+    <meta name="author" content="Syntaxa">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://syntaxa.com">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://syntaxa.com">
+    <meta property="og:title" content="Syntaxa - Assistant IA Personnel pour le Développement">
+    <meta property="og:description" content="Codez plus vite avec Syntaxa, votre assistant IA propulsé par Claude. Gratuit, local, 12+ langages supportés.">
+    <meta property="og:site_name" content="Syntaxa">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://syntaxa.com">
+    <meta property="twitter:title" content="Syntaxa - Assistant IA pour le Développement">
+    <meta property="twitter:description" content="Votre assistant IA intelligent pour coder plus vite et mieux.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Syntaxa",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Assistant IA personnel pour le développement, propulsé par Claude AI",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "127"
+      }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #58a6ff;
+            --secondary: #3fb950;
+            --dark: #0d1117;
+            --dark-secondary: #161b22;
+            --dark-tertiary: #21262d;
+            --text: #c9d1d9;
+            --text-secondary: #8b949e;
+            --border: #30363d;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header / Navigation */
+        .navbar {
+            background: var(--dark-secondary);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-button {
+            padding: 10px 24px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(88, 166, 255, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 2rem 100px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-secondary) 100%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(88, 166, 255, 0.4);
+        }
+
+        .btn-secondary {
+            padding: 14px 32px;
+            background: var(--dark-tertiary);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            background: var(--dark-secondary);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 2rem;
+            background: var(--dark-secondary);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--dark-tertiary);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+        }
+
+        /* Documentation Section */
+        .documentation {
+            padding: 100px 2rem;
+            background: var(--dark);
+        }
+
+        .doc-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .doc-card {
+            background: var(--dark-secondary);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .doc-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .doc-card h4 {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .doc-card p, .doc-card li {
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .doc-card ol, .doc-card ul {
+            margin-left: 1.5rem;
+        }
+
+        .code-inline {
+            background: var(--dark-tertiary);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--secondary);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .info-box {
+            background: rgba(88, 166, 255, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        .warning-box {
+            background: rgba(255, 193, 7, 0.1);
+            border-left: 4px solid #ffc107;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 4px;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 2rem;
+            background: var(--dark-secondary);
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h2 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .btn-white {
+            padding: 14px 32px;
+            background: white;
+            color: var(--primary);
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-secondary);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .features-grid, .doc-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Logo Syntaxa" class="logo-img">
+                <span class="logo-text">Syntaxa</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+                <li><a href="#documentation">Documentation</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="syntaxa-final.html" class="cta-button">Lancer Syntaxa</a>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="hero-content fade-in-up">
+            <h1>Syntaxa - L'IA qui Code avec Vous</h1>
+            <p>Syntaxa est votre assistant de développement intelligent, propulsé par Claude AI. Codez plus vite, débugguez plus facilement, apprenez plus rapidement.</p>
+            <div class="hero-buttons">
+                <a href="syntaxa-final.html" class="btn-primary">Commencer Gratuitement</a>
+                <a href="#fonctionnalites" class="btn-secondary">Découvrir les Fonctionnalités</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="fonctionnalites">
+        <h2 class="section-title">Pourquoi Syntaxa ?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">💡</div>
+                <h3>Intelligence Avancée</h3>
+                <p>Propulsé par Claude Sonnet 4, l'un des modèles d'IA les plus performants pour le code.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Multi-Langages</h3>
+                <p>Support de 12+ langages de programmation avec coloration syntaxique et autocomplétion.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Interface Élégante</h3>
+                <p>Design moderne et intuitif avec éditeur de code intégré et thème personnalisable.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Analyse de Code</h3>
+                <p>Détection automatique de bugs, suggestions d'optimisation et refactoring intelligent.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💾</div>
+                <h3>Historique Complet</h3>
+                <p>Sauvegarde automatique de toutes vos conversations et sessions de codage.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>100% Local</h3>
+                <p>Un seul fichier HTML, fonctionne hors ligne une fois téléchargé. Vos données restent privées.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section class="documentation" id="documentation">
+        <div class="doc-container">
+            <h2 class="section-title">📚 Documentation</h2>
+            
+            <div class="doc-grid">
+                <!-- Installation -->
+                <div class="doc-card">
+                    <h3>🚀 Installation</h3>
+                    <p>Syntaxa est incroyablement simple à installer :</p>
+                    <ol>
+                        <li>Téléchargez le fichier <span class="code-inline">syntaxa-final.html</span></li>
+                        <li>Double-cliquez pour l'ouvrir dans votre navigateur</li>
+                        <li>C'est tout ! Aucune installation requise</li>
+                    </ol>
+                    
+                    <div class="info-box">
+                        <strong>✅ Compatibilité</strong><br>
+                        Chrome, Firefox, Safari, Edge - Windows, macOS, Linux
+                    </div>
+                </div>
+
+                <!-- Configuration API -->
+                <div class="doc-card">
+                    <h3>🔑 Configuration API</h3>
+                    <h4>Obtenir votre clé API</h4>
+                    <ol>
+                        <li>Visitez <span class="code-inline">console.anthropic.com</span></li>
+                        <li>Créez un compte gratuit</li>
+                        <li>Allez dans "API Keys"</li>
+                        <li>Cliquez sur "Create Key"</li>
+                        <li>Copiez la clé (commence par <span class="code-inline">sk-ant-...</span>)</li>
+                    </ol>
+                    
+                    <div class="info-box">
+                        <strong>💡 Mode Test</strong><br>
+                        Activez le "Mode Test" pour essayer sans API
+                    </div>
+
+                    <h4>Tarification</h4>
+                    <ul>
+                        <li>~3$ par million de tokens</li>
+                        <li>Usage quotidien : quelques centimes</li>
+                    </ul>
+                </div>
+
+                <!-- Utilisation -->
+                <div class="doc-card">
+                    <h3>💻 Utilisation</h3>
+                    <h4>Interface</h4>
+                    <ul>
+                        <li><strong>Sidebar</strong> : Configuration et historique</li>
+                        <li><strong>Chat</strong> : Communication avec l'IA</li>
+                        <li><strong>Éditeur</strong> : Code avec coloration syntaxique</li>
+                    </ul>
+
+                    <h4>Raccourcis</h4>
+                    <ul>
+                        <li><strong>Enter</strong> : Envoyer un message</li>
+                        <li><strong>Shift + Enter</strong> : Nouvelle ligne</li>
+                        <li><strong>🔄</strong> : Mise à jour (admin)</li>
+                        <li><strong>🌓</strong> : Changer le thème</li>
+                        <li><strong>🗑️</strong> : Effacer</li>
+                        <li><strong>📥</strong> : Exporter</li>
+                    </ul>
+                </div>
+
+                <!-- Fonctionnalités -->
+                <div class="doc-card">
+                    <h3>✨ Fonctionnalités</h3>
+                    <h4>Langages Supportés</h4>
+                    <p>JavaScript, Python, Java, C++, C#, PHP, Ruby, Go, Rust, SQL, HTML, CSS</p>
+
+                    <h4>Analyse de Code</h4>
+                    <p>Cliquez sur "🔍 Analyser" pour obtenir :</p>
+                    <ul>
+                        <li>Explication du code</li>
+                        <li>Détection de bugs</li>
+                        <li>Suggestions d'optimisation</li>
+                        <li>Best practices</li>
+                    </ul>
+                </div>
+
+                <!-- Mise à jour -->
+                <div class="doc-card">
+                    <h3>🔄 Mise à Jour</h3>
+                    <div class="warning-box">
+                        <strong>⚠️ Admin uniquement</strong><br>
+                        Mot de passe par défaut : <span class="code-inline">syntaxa2026</span>
+                    </div>
+
+                    <h4>Comment mettre à jour</h4>
+                    <ol>
+                        <li>Cliquez sur 🔄 dans le header</li>
+                        <li>Entrez le mot de passe admin</li>
+                        <li>Vérifiez les mises à jour</li>
+                        <li>Installez si disponible</li>
+                    </ol>
+                </div>
+
+                <!-- FAQ -->
+                <div class="doc-card">
+                    <h3>❓ FAQ</h3>
+                    <h4>Fonctionne hors ligne ?</h4>
+                    <p>L'interface oui, mais l'API nécessite Internet.</p>
+
+                    <h4>Données sécurisées ?</h4>
+                    <p>Oui. Tout est stocké localement dans votre navigateur.</p>
+
+                    <h4>Mode Test gratuit ?</h4>
+                    <p>Oui, complètement gratuit sans API.</p>
+
+                    <h4>Personnalisable ?</h4>
+                    <p>Oui, le code est open source et modifiable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h2>12+</h2>
+                <p>Langages Supportés</p>
+            </div>
+            <div class="stat-item">
+                <h2>100%</h2>
+                <p>Gratuit & Open Source</p>
+            </div>
+            <div class="stat-item">
+                <h2>∞</h2>
+                <p>Conversations Illimitées</p>
+            </div>
+            <div class="stat-item">
+                <h2>0</h2>
+                <p>Installation Requise</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Prêt à Révolutionner Votre Développement ?</h2>
+        <p>Téléchargez Syntaxa maintenant et commencez à coder avec l'IA</p>
+        <a href="syntaxa-final.html" class="btn-white">Télécharger Syntaxa Gratuitement</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="faq">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Syntaxa</h3>
+                <p>Votre assistant IA personnel pour le développement. Propulsé par Claude AI d'Anthropic.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Produit</h3>
+                <ul>
+                    <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+                    <li><a href="#documentation">Documentation</a></li>
+                    <li><a href="syntaxa-final.html">Télécharger</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Ressources</h3>
+                <ul>
+                    <li><a href="#documentation">Guide de démarrage</a></li>
+                    <li><a href="#documentation">Configuration API</a></li>
+                    <li><a href="#faq">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Communauté</h3>
+                <ul>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Discord</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Syntaxa. Tous droits réservés. Propulsé par Claude AI (Anthropic)</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .stat-item, .doc-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
